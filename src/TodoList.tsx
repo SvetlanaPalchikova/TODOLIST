@@ -31,11 +31,11 @@ const TodoList: React.FC<TodoListPropsType> = ({title, tasks}) => {
                     </li>
                     <li>
                         <input type="checkbox" checked={tasks[1].isDone}/>
-                        <span>tasks[1].title</span>
+                        <span>{tasks[1].title}</span>
                     </li>
                     <li>
                         <input type="checkbox" checked={tasks[2].isDone}/>
-                        <span>tasks[2].title</span>
+                        <span>{tasks[2].title}</span>
                     </li>
                 </ul>
                 <div>
