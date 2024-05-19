@@ -12,10 +12,15 @@ export type TaskType = {
 }
 
 const TodoList: React.FC<TodoListPropsType> = ({title, tasks}) => {
-
-
-
-
+    const listItems: Array<JSX.Element> = []
+    for (let i=0; i<tasks.length; i++) {
+        const newListItem = <li>
+            <input type="checkbox" checked={tasks[i].isDone}/>
+            <span>{tasks[i].title}</span>
+            <button>X</button>
+        </li>
+        listItems.push(newListItem)
+    }
     return (
         <div>
             <div className="todolist">
@@ -25,18 +30,7 @@ const TodoList: React.FC<TodoListPropsType> = ({title, tasks}) => {
                     <button>+</button>
                 </div>
                 <ul>
-                    <li>
-                        <input type="checkbox" checked={tasks[0].isDone}/>
-                        <span>{tasks[0].title}</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" checked={tasks[1].isDone}/>
-                        <span>{tasks[1].title}</span>
-                    </li>
-                    <li>
-                        <input type="checkbox" checked={tasks[2].isDone}/>
-                        <span>{tasks[2].title}</span>
-                    </li>
+                    {listItems}
                 </ul>
                 <div>
                     <button>All</button>
